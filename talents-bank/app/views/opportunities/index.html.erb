@@ -1,0 +1,20 @@
+<%= link_to  'Registar nova vaga',  new_opportunity_path %>
+<%= link_to  'Voltar',  root_path %>
+
+<h6>HTML index</h6>
+<%if @opportunities.empty? %>
+   <h3>Nenhuma vaga disponível. </h3>
+<% end %>
+
+<% @opportunities.each do |opportunity| %>
+  <dl>
+    <dt> Código da vaga: </dt>
+    <dd> <%= link_to "#{opportunity.code}", opportunity_path(opportunity) %> </dd>
+    <dt> Título </dt>
+    <dd> <%= opportunity.title %> </dd>
+    <dt> Descrição </dt>
+    <dd> <%= opportunity.description %> </dd>
+    <dt> Data final da vaga </dt>
+    <dd> <%= opportunity.end_date %> </dd>
+  </dl>
+<% end %>   

@@ -1,0 +1,41 @@
+<%if @opportunity.errors.full_messages.any? %>
+  <p>Não foi possível salvar, verifique os erros abaixo: </p>
+  <% @opportunity.errors.full_messages.each do |erro|%>
+    <p> <%= erro %>  </p>
+  <% end %>
+<% end %>
+
+
+
+<%= form_for(@opportunity, local:true) do |f| %>
+  <div>
+    <%= f.label :title, 'Título' %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description, 'Descrição' %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :skills, 'Habilidades' %>
+    <%= f.text_field :skills %>
+  </div>
+  <div>
+    <%= f.label :salary, 'Salário' %>
+    <%= f.text_field :salary %>
+  </div>
+  <div>
+    <%= f.label :level, 'Nível' %>
+    <%= f.text_field :level %>
+  </div>
+  <div>
+    <%= f.label :region, 'Região' %>
+    <%= f.text_field :region %>
+  </div>
+  <div>
+    <%= f.label :end_date, 'Data final da vaga' %>
+    <%= f.date_field :end_date %>
+  </div>
+  
+  <%= f.submit 'Enviar'%>
+<% end %>  
